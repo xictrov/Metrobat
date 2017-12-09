@@ -1,4 +1,4 @@
-package v.metrobat.front;
+package v.metrobat.front.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import v.metrobat.R;
+import v.metrobat.front.Fragment.ObjectsAdsListFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,7 +46,7 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setFragment(new MainFragment());
+        setFragment(new ObjectsAdsListFragment());
     }
 
     @Override
@@ -88,7 +89,7 @@ public class NavigationActivity extends AppCompatActivity
         Fragment fragment;
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            setFragment(new MainFragment());
+            setFragment(new ObjectsAdsListFragment());
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

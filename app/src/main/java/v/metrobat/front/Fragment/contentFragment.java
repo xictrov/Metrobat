@@ -1,4 +1,4 @@
-package v.metrobat.front;
+package v.metrobat.front.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

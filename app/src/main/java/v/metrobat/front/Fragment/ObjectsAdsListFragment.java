@@ -1,4 +1,4 @@
-package v.metrobat.front;
+package v.metrobat.front.Fragment;
 
 
 import android.os.Bundle;
@@ -10,20 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import v.metrobat.R;
+import v.metrobat.front.Adapter.sliderAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends Fragment {
+public class ObjectsAdsListFragment extends Fragment {
 
     View view;
     ViewPager viewpager;
     TabLayout tabbedLayout;
 
-    public MainFragment() {
+    public ObjectsAdsListFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

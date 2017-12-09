@@ -1,9 +1,10 @@
-package v.metrobat.front;
+package v.metrobat.front.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
+
+import v.metrobat.front.Fragment.contentFragment;
 
 /**
  * Created by V on 02/12/2017.
@@ -11,7 +12,7 @@ import android.support.v4.view.PagerAdapter;
 
 public class sliderAdapter extends FragmentPagerAdapter {
 
-    final String tabs[]={"Perduts","Trobats"};
+    private final String tabs[]={"Perduts","Trobats"};
 
     public sliderAdapter(FragmentManager fm) {
         super(fm);
