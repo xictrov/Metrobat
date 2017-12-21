@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="v.metrobat.front.Fragment.InitialFragment">
+
+
+    <ImageView
+        android:id="@+id/metrobatIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+
+    <Button
+        android:id="@+id/btnPerdut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="204dp"
+        android:layout_marginStart="68dp"
+        android:text="@string/perdut" />
+
+    <Button
+        android:id="@+id/btnTrobat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnPerdut"
+        android:layout_alignBottom="@+id/btnPerdut"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:text="@string/trobat" />
+
+</RelativeLayout>

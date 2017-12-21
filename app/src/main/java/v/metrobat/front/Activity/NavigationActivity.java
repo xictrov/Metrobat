@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import v.metrobat.R;
+import v.metrobat.front.Fragment.InitialFragment;
+import v.metrobat.front.Fragment.NewItemFragment;
 import v.metrobat.front.Fragment.ObjectsAdsListFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -46,7 +48,7 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setFragment(new ObjectsAdsListFragment());
+        setFragment(new InitialFragment());
     }
 
     @Override
@@ -88,12 +90,11 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment;
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-            setFragment(new ObjectsAdsListFragment());
+            setFragment(new InitialFragment());
         } else if (id == R.id.nav_gallery) {
-
+            setFragment(new NewItemFragment());
         } else if (id == R.id.nav_slideshow) {
-
+            setFragment(new ObjectsAdsListFragment());
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

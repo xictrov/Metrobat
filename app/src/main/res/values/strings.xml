@@ -10,4 +10,131 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="perdut">Perdut</string>
+    <string name="trobat">Trobat</string>
+    <string name="tipusobjecte">Tipus d\'objecte</string>
+    <string name="description">Descripció de l\'objecte i el lloc de recollida</string>
+    <string name="hora">Hora</string>
+    <string name="date">Data</string>
+    <string name="publica">Publica</string>
+
+    <string-array name="transports_array">
+        <item>Metro</item>
+        <item>Bus</item>>
+    </string-array>
+
+    <string-array name="busLines_array">
+        <item>D20</item>
+        <item>D40</item>
+        <item>H4</item>
+        <item>H6</item>
+        <item>H8</item>
+        <item>H10</item>
+        <item>H12</item>
+        <item>H14</item>
+        <item>H16</item>
+        <item>V3</item>
+        <item>V5</item>
+        <item>V7</item>
+        <item>V11</item>
+        <item>V13</item>
+        <item>V15</item>
+        <item>V17</item>
+        <item>V21</item>
+        <item>V27</item>
+        <item>V29</item>
+        <item>V31</item>
+        <item>6</item>
+        <item>7</item>
+        <item>11</item>
+        <item>13</item>
+        <item>19</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>27</item>
+        <item>33</item>
+        <item>34</item>
+        <item>39</item>
+        <item>41</item>
+        <item>42</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>50</item>
+        <item>51</item>
+        <item>54</item>
+        <item>55</item>
+        <item>59</item>
+        <item>60</item>
+        <item>62</item>
+        <item>63</item>
+        <item>65</item>
+        <item>66</item>
+        <item>67</item>
+        <item>68</item>
+        <item>70</item>
+        <item>75</item>
+        <item>76</item>
+        <item>78</item>
+        <item>79</item>
+        <item>91</item>
+        <item>92</item>
+        <item>94</item>
+        <item>95</item>
+        <item>96</item>
+        <item>97</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>107</item>
+        <item>109</item>
+        <item>110</item>
+        <item>111</item>
+        <item>113</item>
+        <item>114</item>
+        <item>115</item>
+        <item>116</item>
+        <item>117</item>
+        <item>118</item>
+        <item>119</item>
+        <item>120</item>
+        <item>121</item>
+        <item>122</item>
+        <item>123</item>
+        <item>124</item>
+        <item>125</item>
+        <item>126</item>
+        <item>127</item>
+        <item>128</item>
+        <item>129</item>
+        <item>130</item>
+        <item>131</item>
+        <item>132</item>
+        <item>136</item>
+        <item>143</item>
+        <item>150</item>
+        <item>155</item>
+        <item>157</item>
+        <item>165</item>
+        <item>185</item>
+        <item>191</item>
+        <item>192</item>
+        <item>196</item>
+    </string-array>
+
+    <string-array name="metroLines_array">
+        <item>L1</item>
+        <item>L2</item>
+        <item>L3</item>
+        <item>L4</item>
+        <item>L5</item>
+        <item>L9N</item>
+        <item>L9S</item>
+        <item>L10</item>
+        <item>L11</item>
+        <item>FM</item>
+    </string-array>
+
 </resources>
