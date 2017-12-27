@@ -89,18 +89,10 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment;
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             setFragment(new InitialFragment());
-        } else if (id == R.id.nav_gallery) {
-            setFragment(new NewItemFragment());
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_adList) {
             setFragment(new ObjectsAdsListFragment());
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         return true;
