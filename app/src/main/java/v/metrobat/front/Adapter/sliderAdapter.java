@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import v.metrobat.front.Fragment.contentFragment;
+import v.metrobat.front.Fragment.PerdutsFragment;
+import v.metrobat.front.Fragment.TrobatsFragment;
 
 /**
  * Created by V on 02/12/2017.
@@ -19,8 +20,15 @@ public class sliderAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return new contentFragment();
+    public android.support.v4.app.Fragment getItem(int position) {
+        android.support.v4.app.Fragment fragment = null;
+        if (position == 0) {
+            fragment = new PerdutsFragment();
+        }
+        else if (position == 1) {
+            fragment = new TrobatsFragment();
+        }
+        return fragment;
     }
 
     @Override

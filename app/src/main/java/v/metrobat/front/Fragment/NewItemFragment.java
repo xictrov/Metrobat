@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -186,34 +187,57 @@ public class NewItemFragment extends Fragment {
                 String eTime = hour.getText().toString();
                 String eDescription = description.getText().toString();
 
+                View focusView = null;
+                boolean cancel = false;
+
                 if (lostOrFound.equals("lost")) {
-                    if (Objects.equals(eName, "")) {
-                        itemName.setError("Què has perdut?");
-                    }
-                    if (Objects.equals(eDate, "")) {
-                        date.setError("Quin dia ho vas perdre?");
-                    }
-                    if (Objects.equals(eTime, "")) {
-                        hour.setError("A quina hora ho vas perdre?");
-                    }
-                    if (Objects.equals(eDescription, "")) {
+                    if (TextUtils.isEmpty(eDescription)) {
                         description.setError("Digues almenys un lloc de recollida.");
+                        focusView = description;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eTime)) {
+                        hour.setError("A quina hora ho vas perdre?");
+                        focusView = hour;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eDate)) {
+                        date.setError("Quin dia ho vas perdre?");
+                        focusView = date;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eName)) {
+                        itemName.setError("Què has perdut?");
+                        focusView = itemName;
+                        cancel = true;
                     }
                 }
                 else {
-                    if (Objects.equals(eName, "")) {
-                        itemName.setError("Què has trobat?");
-                    }
-                    if (Objects.equals(eDate, "")) {
-                        date.setError("Quin dia ho vas trobar?");
-                    }
-                    if (Objects.equals(eTime, "")) {
-                        hour.setError("A quina hora ho vas trobar?");
-                    }
-                    if (Objects.equals(eDescription, "")) {
+                    if (TextUtils.isEmpty(eDescription)) {
                         description.setError("Digues almenys un lloc de recollida.");
+                        focusView = hour;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eTime)) {
+                        hour.setError("A quina hora ho vas trobar?");
+                        focusView = hour;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eDate)) {
+                        date.setError("Quin dia ho vas trobar?");
+                        focusView = date;
+                        cancel = true;
+                    }
+                    if (TextUtils.isEmpty(eName)) {
+                        itemName.setError("Què has trobat?");
+                        focusView = itemName;
+                        cancel = true;
                     }
                 }
+                if (cancel) {
+                    focusView.requestFocus();
+                }
+
             }
         });
 
