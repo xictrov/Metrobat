@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,7 +19,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Objects;
 
+import back.ItemData;
 import v.metrobat.R;
 
 /**
@@ -26,6 +29,7 @@ import v.metrobat.R;
  */
 public class NewItemFragment extends Fragment {
 
+    private ItemData itemData;
 
     private EditText itemName;
     private Spinner transport;
@@ -34,7 +38,11 @@ public class NewItemFragment extends Fragment {
     private EditText hour;
     private EditText description;
 
+    private Button publicaBtn;
+
     private int mYear, mMonth, mDay, mHour, mMinute;
+
+    private String eTransport, eTransportLine;
 
     private static final String ARG_LOSTORFOUND = "lostOrFound";
     private String lostOrFound;
@@ -66,6 +74,9 @@ public class NewItemFragment extends Fragment {
         if (getArguments() != null) {
             this.lostOrFound = getArguments().getString(ARG_LOSTORFOUND);
         }
+        itemData = new ItemData(getActivity().getApplicationContext());
+        itemData.open();
+
     }
 
 
@@ -81,6 +92,7 @@ public class NewItemFragment extends Fragment {
         date = (EditText) view.findViewById(R.id.editTextDate);
         hour = (EditText) view.findViewById(R.id.editTextTime);
         description = (EditText) view.findViewById(R.id.editTextDescription);
+        publicaBtn = (Button) view.findViewById(R.id.publicaBtn);
 
         ArrayAdapter<CharSequence> adapterTransport = ArrayAdapter.createFromResource(getActivity(), R.array.transports_array, android.R.layout.simple_spinner_item);
         adapterTransport.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
@@ -98,8 +110,22 @@ public class NewItemFragment extends Fragment {
                 }
                 adapterLines.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
                 transportLine.setAdapter(adapterLines);
+                eTransport = item.toString();
             }
             public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        transportLine.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Object item = adapterView.getItemAtPosition(i);
+                eTransportLine = item.toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
@@ -152,6 +178,44 @@ public class NewItemFragment extends Fragment {
             }
         });
 
+        publicaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String eName = itemName.getText().toString();
+                String eDate = date.getText().toString();
+                String eTime = hour.getText().toString();
+                String eDescription = description.getText().toString();
+
+                if (lostOrFound.equals("lost")) {
+                    if (Objects.equals(eName, "")) {
+                        itemName.setError("Què has perdut?");
+                    }
+                    if (Objects.equals(eDate, "")) {
+                        date.setError("Quin dia ho vas perdre?");
+                    }
+                    if (Objects.equals(eTime, "")) {
+                        hour.setError("A quina hora ho vas perdre?");
+                    }
+                    if (Objects.equals(eDescription, "")) {
+                        description.setError("Digues almenys un lloc de recollida.");
+                    }
+                }
+                else {
+                    if (Objects.equals(eName, "")) {
+                        itemName.setError("Què has trobat?");
+                    }
+                    if (Objects.equals(eDate, "")) {
+                        date.setError("Quin dia ho vas trobar?");
+                    }
+                    if (Objects.equals(eTime, "")) {
+                        hour.setError("A quina hora ho vas trobar?");
+                    }
+                    if (Objects.equals(eDescription, "")) {
+                        description.setError("Digues almenys un lloc de recollida.");
+                    }
+                }
+            }
+        });
 
         return view;
     }

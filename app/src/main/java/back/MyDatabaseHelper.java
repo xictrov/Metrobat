@@ -25,7 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table " + TABLE_ITEMS + "( "
             + COLUMN_ID + " integer primary key autoincrement, "
-            + COLUMN_LOST_OR_FOUND + "text not null"
+            + COLUMN_LOST_OR_FOUND + "text not null, "
             + COLUMN_NAME + " text not null, "
             + COLUMN_TRANSPORT + " text not null, "
             + COLUMN_TRANSPORT_LINE + " text not null, "

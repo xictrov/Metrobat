@@ -37,7 +37,7 @@ public class InitialFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getActivity().getSupportFragmentManager();
-                NewItemFragment fragment = NewItemFragment.newInstance("Lost");
+                NewItemFragment fragment = NewItemFragment.newInstance("lost");
                 fm.beginTransaction().replace(R.id.content_navigation,fragment).commit();
             }
         });
@@ -46,7 +46,7 @@ public class InitialFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getActivity().getSupportFragmentManager();
-                NewItemFragment fragment = NewItemFragment.newInstance("Found");
+                NewItemFragment fragment = NewItemFragment.newInstance("found");
                 fm.beginTransaction().replace(R.id.content_navigation,fragment).commit();
             }
         });
