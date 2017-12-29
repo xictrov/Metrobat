@@ -4,6 +4,7 @@ package v.metrobat.front.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,18 +37,20 @@ public class InitialFragment extends Fragment {
         btnPerdut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 NewItemFragment fragment = NewItemFragment.newInstance("lost");
-                fm.beginTransaction().replace(R.id.content_navigation,fragment).commit();
+                ft.replace(R.id.content_navigation,fragment);
+                ft.addToBackStack(null).commit();
             }
         });
 
         btnTrobat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 NewItemFragment fragment = NewItemFragment.newInstance("found");
-                fm.beginTransaction().replace(R.id.content_navigation,fragment).commit();
+                ft.replace(R.id.content_navigation,fragment);
+                ft.addToBackStack(null).commit();
             }
         });
 

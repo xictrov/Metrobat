@@ -148,6 +148,7 @@ public class NewItemFragment extends Fragment {
                         date.setText(selectedday + "/" + (selectedmonth+1) + "/" + selectedyear);
                     }
                 },mYear, mMonth, mDay);
+                mDatePicker.getDatePicker().setMaxDate(System.currentTimeMillis());
                 mDatePicker.getDatePicker().setCalendarViewShown(false);
                 //mDatePicker.setTitle("Select date");
                 mDatePicker.show();

@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -66,8 +67,6 @@ public class NavigationActivity extends AppCompatActivity
             }
         };
 
-
-
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -76,7 +75,8 @@ public class NavigationActivity extends AppCompatActivity
         navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setFragment(new InitialFragment());
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_navigation,new InitialFragment()).commit();
     }
 
     @Override
@@ -84,15 +84,22 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if(getFragmentManager().getBackStackEntryCount()>0) {
-            getFragmentManager().popBackStack();
-        }
-        else {
-            super.onBackPressed();
+        } else {
+            if (getSupportFragmentManager().findFragmentByTag("HOME") == null) {
+                InitialFragment fragment = new InitialFragment();
+                FragmentTransaction fragmentTransaction =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_navigation, fragment, "HOME");
+                fragmentTransaction.commit();
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation, menu);
@@ -112,7 +119,7 @@ public class NavigationActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -122,26 +129,46 @@ public class NavigationActivity extends AppCompatActivity
         Fragment fragment = null;
         Bundle args = new Bundle();
         if (id == R.id.nav_home) {
-            setFragment(new InitialFragment());
+            if (!item.isChecked()) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_navigation,new InitialFragment());
+                ft.commit();
+                closeDrawer();
+            }
+            else {
+                closeDrawer();
+            }
         } else if (id == R.id.nav_adList) {
-            setFragment(new ObjectsAdsListFragment());
+            if (!item.isChecked()) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_navigation,new ObjectsAdsListFragment());
+                ft.commit();
+                closeDrawer();
+            }
+            else {
+                closeDrawer();
+            }
         }
         return true;
     }
 
-    public void setFragment(Fragment fragment) {
+    /*public void setFragment(Fragment fragment) {
         if (fragment!=null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_navigation,fragment);
-            ft.commit();
+            ft.addToBackStack(null).commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-    }
+        closeDrawer();
+    }*/
 
     @Override
     public void onFragmentMessage(int TAG, String data) {
 
+    }
+
+    private void closeDrawer() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 }
