@@ -2,13 +2,17 @@ package v.metrobat.front.Fragment;
 
 
 import android.app.DatePickerDialog;
+import android.app.FragmentManager;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -236,6 +240,27 @@ public class NewItemFragment extends Fragment {
                 }
                 if (cancel) {
                     focusView.requestFocus();
+                }
+                else {
+                    itemData.createItem(lostOrFound,
+                            eName,
+                            eTransport,eTransportLine,
+                            eDate,eTime,
+                            eDescription);
+                    itemName.setText("");
+                    transport.setSelection(0);
+                    transportLine.setSelection(0);
+                    date.setText("");
+                    hour.setText("");
+                    description.setText("");
+
+                    InputMethodManager inputManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+                    android.support.v4.app.FragmentManager fm = getActivity().getSupportFragmentManager();
+                    ObjectsAdsListFragment fragment = new ObjectsAdsListFragment();
+                    fm.beginTransaction().replace(R.id.content_navigation, fragment).commit();
+
                 }
 
             }

@@ -12,22 +12,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="150dp"
+            android:layout_height="315dp"
+            android:layout_margin="20dp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/metrobatIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@drawable/metrobaticon" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/btnPerdut"

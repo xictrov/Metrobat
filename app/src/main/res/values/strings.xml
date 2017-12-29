@@ -17,6 +17,11 @@
     <string name="hora">Hora</string>
     <string name="date">Data</string>
     <string name="publica">Publica</string>
+    <string name="tipus_objecte_nom">Tipus objecte (nom)</string>
+    <string name="transport">Transport</string>
+    <string name="linia">Línia</string>
+    <string name="data">Data</string>
+    <string name="descripcio">Descripció</string>
 
     <string-array name="transports_array">
         <item>Metro</item>

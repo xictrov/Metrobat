@@ -6,11 +6,11 @@
     tools:context="v.metrobat.front.Fragment.NewItemFragment">
 
     <LinearLayout
+        android:id="@+id/newItemFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="50dp">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,17 +29,15 @@
                 android:id="@+id/til_kind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="40dp">
+                android:layout_weight="1">
 
                 <EditText
                     android:id="@+id/editTextKind"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/tipusobjecte"
-                    android:textColorHint="@color/colorSecondaryDark"
-                    android:inputType="textPersonName" />
+                    android:hint="@string/tipus_objecte_nom"
+                    android:textColorHint="@color/colorSecondaryDark" />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -48,30 +46,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="87dp">
+            android:padding="10dp">
 
             <ImageView
+                android:layout_marginStart="10dp"
                 android:id="@+id/transportIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:src="@drawable/ic_directions_subway_black_24dp"
                 android:tint="@color/colorSecondaryDark" />
 
             <Spinner
+                android:layout_marginStart="10dp"
                 android:id="@+id/transportSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:spinnerMode="dialog"/>
 
             <Spinner
+                android:layout_marginEnd="50dp"
                 android:id="@+id/lineSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:spinnerMode="dialog"/>
 
 
