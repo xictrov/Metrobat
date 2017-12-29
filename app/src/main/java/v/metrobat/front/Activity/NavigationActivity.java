@@ -129,7 +129,7 @@ public class NavigationActivity extends AppCompatActivity
         Fragment fragment = null;
         Bundle args = new Bundle();
         if (id == R.id.nav_home) {
-            if (!item.isChecked()) {
+            if (getSupportFragmentManager().findFragmentByTag("HOME") == null || !item.isChecked()) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.content_navigation,new InitialFragment());
                 ft.commit();
